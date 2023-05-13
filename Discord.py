@@ -14,6 +14,9 @@ def discord_bot():
     async def on_message(message):                      #接收到消息
         if message.author == bot.user:
             return
+        print(message)
+        print(message.content)
+        return
 
     @bot.slash_command(guild_id=ch_ids)
     async def hello(ctx):                               #斜杠指令
