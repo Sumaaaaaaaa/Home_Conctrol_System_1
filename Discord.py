@@ -1,5 +1,6 @@
+# 类导入
 import discord
-
+# 内部文件
 import FileRead_GetSecretData
 
 
