@@ -19,8 +19,7 @@ class Log(object):
     def __init__(self, LogFilePath: str):
         # 需要输入一个LOG文件夹地址，若该地址错误会直接{ERROR结束程序}
         if os.path.exists(LogFilePath):
-            self.__LogFilePath = LogFilePath
-            self.Record("Log system normally started", __name__)
+            self.LogFilePath = LogFilePath
         else:
             raise ValueError
 
@@ -39,7 +38,7 @@ class Log(object):
             print(f"<\033[92m{datetime.datetime.now()}\033[0m> <\033[96m{path}\033[0m> : {content}")
 
     def __File_Writing(self, content, path, isError):
-        filepath = f"{self.__LogFilePath}\\{str(datetime.date.today())}.txt"
+        filepath = f"{self.LogFilePath}\\{str(datetime.date.today())}.txt"
         with open(filepath, 'a', ) as file:
             if isError:
                 file.write(f"<{datetime.datetime.now()}>\t"
